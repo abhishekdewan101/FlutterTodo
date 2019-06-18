@@ -9,7 +9,7 @@ class CategorySelectButtonWidget extends StatelessWidget {
   String categoryName;
   int cateogryCount;
 
-  CategorySelectButtonWidget({this.categoryIcon, this.iconColor, this.categoryName, this.cateogryCount})
+  CategorySelectButtonWidget({this.categoryIcon, this.iconColor, this.categoryName, this.cateogryCount});
 
   @override
   Widget build(BuildContext context) {

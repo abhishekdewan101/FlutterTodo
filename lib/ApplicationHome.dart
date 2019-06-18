@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todoapplication/utils/TodoColors.dart';
 import 'package:todoapplication/widgets/CategoryGridWidget.dart';
+import 'package:todoapplication/widgets/ListCategoriesWidget.dart';
 import 'package:todoapplication/widgets/SearchBarWidget.dart';
 
 class ApplicationHome extends StatelessWidget {
@@ -15,7 +16,8 @@ class ApplicationHome extends StatelessWidget {
             new Column(
               children: <Widget>[
                 new SearchBarWidget(),
-                new CategoryGridWidget()
+                new CategoryGridWidget(),
+                new ListCategoriesWidget()
               ],
             ),
           ],

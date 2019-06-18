@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:todoapplication/utils/TodoColors.dart';
 
@@ -7,9 +9,9 @@ class CategoryGridWidget extends StatelessWidget {
 
   int categoryHeight = 75;
   int categoryWidth = 140;
-  int categoryPadding = 20;
+  int categoryPadding = 40;
   int horizontalChildCount = 2;
-  int verticalChildCount = 4;
+  int verticalChildCount = 2;
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +21,12 @@ class CategoryGridWidget extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Container(
-            height: ((categoryHeight * verticalChildCount) + (categoryPadding * verticalChildCount - 1)).toDouble() ,
+            height: ((categoryHeight * verticalChildCount) + (categoryPadding * (verticalChildCount))).toDouble() ,
             child: new GridView.count(
               crossAxisCount: horizontalChildCount,
               childAspectRatio: (categoryWidth/ categoryHeight),
-              mainAxisSpacing: categoryPadding.toDouble(),
-              crossAxisSpacing: categoryPadding.toDouble(),
+              mainAxisSpacing: categoryPadding.toDouble()/2,
+              crossAxisSpacing: categoryPadding.toDouble()/2,
               physics: NeverScrollableScrollPhysics(),
               children: <Widget>[
                 CategorySelectButtonWidget(
