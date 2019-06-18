@@ -1,16 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:todoapplication/utils/TodoColors.dart';
 
 class AddListButtonWidget extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return new Padding(
       padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
       child: new Row(
         children: <Widget>[
-          new Text("Add List",
-              style: TextStyle(color: Colors.blue, fontSize: 18))
+          new FlatButton(
+            child: new Text("Add List",
+                style: TextStyle(color: Colors.blue, fontSize: 18)),
+            onPressed: () { print("Hello World");},
+            splashColor: TodoColors.searchBarBackgroundColor,
+          )
         ],
         mainAxisAlignment: MainAxisAlignment.end,
       ),
