@@ -4,12 +4,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todoapplication/widgets/ListCategoryItemWidget.dart';
 
+import 'AddListButtonWidget.dart';
+
 class ListCategoriesWidget extends StatelessWidget {
   _buildReminderListHeading() {
     return Padding(
       padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
-      child: new Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-        Text("My Lists", style: TextStyle(color: Colors.white, fontSize: 26))
+      child: new Row(mainAxisAlignment: MainAxisAlignment.start, 
+      children: [
+        Text("My Lists", style: TextStyle(color: Colors.white, fontSize: 26)),
+        Spacer(),
+        AddListButtonWidget()
       ]),
     );
   }

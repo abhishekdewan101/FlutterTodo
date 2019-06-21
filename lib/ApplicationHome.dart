@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:todoapplication/utils/TodoColors.dart';
-import 'package:todoapplication/widgets/AddListButtonWidget.dart';
+import 'package:todoapplication/AddTodoScreen.dart';
+import 'package:todoapplication/widgets/AddTodoButtonWidget.dart';
 import 'package:todoapplication/widgets/CategoryGridWidget.dart';
 import 'package:todoapplication/widgets/ListCategoriesWidget.dart';
 import 'package:todoapplication/widgets/SearchBarWidget.dart';
@@ -9,7 +9,6 @@ import 'package:todoapplication/widgets/SearchBarWidget.dart';
 class ApplicationHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return new Padding(
         padding: EdgeInsets.fromLTRB(30, 20, 30, 0),
         child: new ListView(
@@ -19,10 +18,11 @@ class ApplicationHome extends StatelessWidget {
                 new SearchBarWidget(),
                 new CategoryGridWidget(),
                 new ListCategoriesWidget(),
-                new AddListButtonWidget()
+                new AddTodoButtonWidget()
               ],
             ),
           ],
         ));
   }
 }
+
