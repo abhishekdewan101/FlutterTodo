@@ -15,7 +15,10 @@ class AddTodoButtonWidget extends StatelessWidget {
           backgroundColor: Colors.redAccent.shade200,
           onPressed: () {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => AddTodoScreen()));
+                MaterialPageRoute(builder: (context) => AddTodoScreen(
+                  headerColor: Colors.green,
+                  headerTitle: "Camping Trip",
+                )));
           },
         ),
       ),

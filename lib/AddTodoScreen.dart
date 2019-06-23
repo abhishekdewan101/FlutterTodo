@@ -3,22 +3,37 @@ import 'package:flutter/painting.dart';
 import 'package:todoapplication/utils/TodoColors.dart';
 
 class AddTodoScreen extends StatefulWidget {
+
+  Color headerColor;
+  String headerTitle;
+
+
+  AddTodoScreen({this.headerColor, this.headerTitle});
+
   @override
   State<StatefulWidget> createState() {
-    return AddTodoScreenState();
+    return AddTodoScreenState(headerColor: headerColor, headerTitle: headerTitle);
   }
 }
 
 class AddTodoScreenState extends State<AddTodoScreen> {
   List<Widget> inputList = new List();
+  Color headerColor;
+  String headerTitle;
+
+  @override
+  AddTodoScreenState({this.headerColor, this.headerTitle}) {
+    inputList.add(_buildListHeader());
+    inputList.add(_buildListInputWidget());
+  }
 
   _buildListHeader() {
     return Padding(
       padding: const EdgeInsets.fromLTRB(0,0, 0, 20),
       child: Text(
-        "Reminders",
+        headerTitle,
         style: TextStyle(
-            color: Colors.blue, fontSize: 28, fontWeight: FontWeight.bold),
+            color: headerColor, fontSize: 28, fontWeight: FontWeight.bold),
       ),
     );
   }
@@ -48,11 +63,6 @@ class AddTodoScreenState extends State<AddTodoScreen> {
         ),
       ),
     ]);
-  }
-
-  AddTodoScreenState() {
-    inputList.add(_buildListHeader());
-    inputList.add(_buildListInputWidget());
   }
 
   @override
