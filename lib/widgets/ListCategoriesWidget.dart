@@ -69,7 +69,6 @@ class ListCategoriesWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    _buildReminderCategoryList();
     return new Column(children: _buildReminderCategoryList());
   }
 }
