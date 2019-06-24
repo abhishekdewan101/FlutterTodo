@@ -9,7 +9,8 @@ class TodoEditingWidget extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    return new TodoEditingState(headerColor: headerColor, headerTitle: headerTitle);
+    return new TodoEditingState(
+        headerColor: headerColor, headerTitle: headerTitle);
   }
 }
 
@@ -17,15 +18,17 @@ class TodoEditingState extends State {
   List<Widget> inputList = new List();
   Color headerColor;
   String headerTitle;
+  bool todoCompleted = false;
+  bool initialized = false;
 
-  TodoEditingState({this.headerColor, this.headerTitle}){
+  TodoEditingState({this.headerColor, this.headerTitle}) {
     inputList.add(_buildListHeader());
     inputList.add(_buildListInputWidget());
   }
 
   _buildListHeader() {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(0,0, 0, 20),
+      padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
       child: Text(
         headerTitle,
         style: TextStyle(
@@ -44,9 +47,29 @@ class TodoEditingState extends State {
 
   _buildListInputWidget() {
     return new Row(children: <Widget>[
-      new Checkbox(
-        value: true,
-        onChanged: (bool value) {},
+      Padding(
+        padding: EdgeInsets.fromLTRB(0, 0, 10.0, 0),
+        child: InkWell(
+          onTap: () => {
+                setState(() {
+                  todoCompleted = !todoCompleted;
+                })
+              },
+          child: new Container(
+              width: 18.0,
+              height: 18.0,
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: todoCompleted ? Colors.blue : Colors.transparent,
+                  border: !todoCompleted
+                      ? Border.all(color: Colors.grey, width: 2.0)
+                      : Border.all(color: Colors.transparent, width: 0.0)),
+              child: Padding(
+                  padding: const EdgeInsets.all(5.0),
+                  child: todoCompleted
+                      ? Icon(Icons.check, size: 9.0, color: Colors.white)
+                      : null)),
+        ),
       ),
       new Flexible(
         child: TextField(
@@ -64,10 +87,9 @@ class TodoEditingState extends State {
   @override
   Widget build(BuildContext context) {
     return Padding(
-          padding: const EdgeInsets.fromLTRB(30, 20, 30, 0),
-          child: new Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: inputList),
-        );
+      padding: const EdgeInsets.fromLTRB(30, 20, 30, 0),
+      child: new Column(
+          crossAxisAlignment: CrossAxisAlignment.start, children: inputList),
+    );
   }
 }
