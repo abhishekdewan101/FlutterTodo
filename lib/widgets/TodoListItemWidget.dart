@@ -57,7 +57,7 @@ class TodoListItemState extends State {
       new Flexible(
         child: TextField(
           onSubmitted: _handleSubmitted,
-          style: new TextStyle(color: Colors.white, fontSize: 24),
+          style: hasTodoBeenCompleted ? TextStyle(color: Colors.white, fontSize: 24, decoration: TextDecoration.lineThrough) : TextStyle(color: Colors.white, fontSize: 24),
           decoration: InputDecoration(
               border: InputBorder.none,
               hintText: 'Enter a reminder',
